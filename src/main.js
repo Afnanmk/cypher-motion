@@ -18,26 +18,26 @@ const clientResultCards = document.getElementById("client-result-cards")
 
 
       // Text slides right, arrow goes right & reappears from left
-    hover(".cta-btn", (button) => {
-      const text = button.querySelector(".btn-text");
-      const arrow = button.querySelector(".btn-arrow");
+    // hover(".cta-btn", (button) => {
+    //   const text = button.querySelector(".btn-text");
+    //   const arrow = button.querySelector(".btn-arrow");
 
-      // Animate text moving right
-      animate(text, { x: "20px" }, { duration: 0.3 });
+    //   // Animate text moving right
+    //   animate(text, { x: "20px" }, { duration: 0.3 });
 
-      // Animate arrow: move right & disappear, reappear from left, then settle
-      animate(arrow, [
-        { x: "20px", opacity: 0, duration: 0.3 },
-        { x: "-40px", opacity: 1, duration: 0.3 },
-        { x: "0", duration: 0.3 }
-      ]);
+    //   // Animate arrow: move right & disappear, reappear from left, then settle
+    //   animate(arrow, [
+    //     { x: "20px", opacity: 0, duration: 0.3 },
+    //     { x: "-40px", opacity: 1, duration: 0.3 },
+    //     { x: "0", duration: 0.3 }
+    //   ]);
 
-      // Return hover-out animation
-      return () => {
-        animate(text, { x: "0" }, { duration: 0.3 });
-        animate(arrow, { x: "0", opacity: 1 }, { duration: 0.3 });
-      };
-    });
+    //   // Return hover-out animation
+    //   return () => {
+    //     animate(text, { x: "0" }, { duration: 0.3 });
+    //     animate(arrow, { x: "0", opacity: 1 }, { duration: 0.3 });
+    //   };
+    // });
 
 
 
@@ -233,14 +233,6 @@ animate(right, {
 
 
 // Step 3: Scroll-triggered return
-scroll(left, {
-  x: ["-300px", "0px"],
-  // scroll effect ends at the end of this section
-  easing: "ease-out"
-});
 
-scroll(right, {
-  x: ["300px", "0px"],
-  easing: "ease-out"
-});
+
 
