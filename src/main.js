@@ -17,24 +17,28 @@ const clientResultHeading = document.getElementById("client-result-heading")
 const clientResultCards = document.getElementById("client-result-cards")
 
 
-const btn = document.querySelector(".cta-btn");
-  const text = document.querySelector(".btn-text");
-  const arrow = document.querySelector(".btn-arrow");
+      // Text slides right, arrow goes right & reappears from left
+    hover(".cta-btn", (button) => {
+      const text = button.querySelector(".btn-text");
+      const arrow = button.querySelector(".btn-arrow");
 
-  // hover effect
-  // hover(btn, () => {
-  //   // both slide opposite inside the same box
-  //   animate(text, { transform: ["translateX(0px)", "translateX(40px)"] }, { duration: 0.4, easing: "ease-in-out" });
-  //   animate(arrow, { transform: ["translateX(0px)", "translateX(-40px)"] }, { duration: 0.4, easing: "ease-in-out" });
+      // Animate text moving right
+      animate(text, { x: "20px" }, { duration: 0.3 });
 
-    // return animation when hover ends
-  //   return () => {
-  //     animate(text, { transform: ["translateX(40px)", "translateX(0px)"] }, { duration: 0.4, easing: "ease-in-out" });
-  //     animate(arrow, { transform: ["translateX(-40px)", "translateX(0px)"] }, { duration: 0.4, easing: "ease-in-out" });
-  //   };
-  // });
+      // Animate arrow: move right & disappear, reappear from left, then settle
+      animate(arrow, [
+        { x: "20px", opacity: 0, duration: 0.3 },
+        { x: "-40px", opacity: 1, duration: 0.3 },
+        { x: "0", duration: 0.3 }
+      ]);
 
-  
+      // Return hover-out animation
+      return () => {
+        animate(text, { x: "0" }, { duration: 0.3 });
+        animate(arrow, { x: "0", opacity: 1 }, { duration: 0.3 });
+      };
+    });
+
 
 
 
