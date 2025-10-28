@@ -4,7 +4,8 @@ import {
   animate,
   scroll,
   inView,
-  stagger
+  stagger,
+  hover
 } from "motion";
 
 const left = document.getElementById("left-pattern");
@@ -14,6 +15,41 @@ const titleSection = document.getElementById("title-section")
 const heroImage = document.getElementById("hero-image")
 const clientResultHeading = document.getElementById("client-result-heading")
 const clientResultCards = document.getElementById("client-result-cards")
+
+
+const btn = document.querySelector(".cta-btn");
+  const text = document.querySelector(".btn-text");
+  const arrow = document.querySelector(".btn-arrow");
+
+  // hover effect
+  // hover(btn, () => {
+  //   // both slide opposite inside the same box
+  //   animate(text, { transform: ["translateX(0px)", "translateX(40px)"] }, { duration: 0.4, easing: "ease-in-out" });
+  //   animate(arrow, { transform: ["translateX(0px)", "translateX(-40px)"] }, { duration: 0.4, easing: "ease-in-out" });
+
+    // return animation when hover ends
+  //   return () => {
+  //     animate(text, { transform: ["translateX(40px)", "translateX(0px)"] }, { duration: 0.4, easing: "ease-in-out" });
+  //     animate(arrow, { transform: ["translateX(-40px)", "translateX(0px)"] }, { duration: 0.4, easing: "ease-in-out" });
+  //   };
+  // });
+
+  
+
+
+
+
+inView(".faqs", (element) => {
+ // Animate heading: slide up + fade in
+    animate(".faq-heading", {y:[50,0], opacity:[0,1]}, {duration:0.7, ease: "easeOut"})
+
+    // Animate cards: scale from center + fade in (with small stagger)
+     animate(".faq-items", {y:[50,0], opacity:[0,1]}, {duration:0.7, ease: "easeOut", })
+          animate(".faq-items div", {y:[50,0], opacity:[0,1]}, {duration:0.7, ease: "easeOut", delay: stagger(0.2) })
+
+     
+}, {amount: 0.2})
+
 
 
 
@@ -201,7 +237,6 @@ scroll(left, {
 
 scroll(right, {
   x: ["300px", "0px"],
-
   easing: "ease-out"
 });
 
