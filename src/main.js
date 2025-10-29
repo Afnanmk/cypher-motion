@@ -8,8 +8,7 @@ import {
   hover
 } from "motion";
 
-const left = document.getElementById("left-pattern");
-const right = document.getElementById("right-pattern");
+
 const section = document.querySelector(".pattern-section");
 const titleSection = document.getElementById("title-section")
 const heroImage = document.getElementById("hero-image")
@@ -201,38 +200,142 @@ inView("#client-result-cards", (element) => {
 
 
 
-// Step 1: Slight approach (toward center)
-animate(left, {
-  x: ["0px", "50px"]
-}, {
-  duration: 0.5
-});
-animate(right, {
-  x: ["0px", "-50px"]
-}, {
-  duration: 0.5
-});
 
-// Step 2: Immediately separate beyond screen
-animate(left, {
-  x: ["50px", "-480px"],
-  y: ["5px", "40px"]
-}, {
-  delay: 0.2,
-  duration: 0.4,
-  easing: "ease-out"
-});
-animate(right, {
-  x: ["-50px", "400px"],
-  y: ["8px", "40px"]
-}, {
-  delay: 0.2,
-  duration: 0.4,
-  easing: "ease-out"
-});
+// animate("#left-pattern", {x:["0px", "-420px"]}, { delay: 0.5,
+//   duration: 0.4,
+//   easing: "ease-out"})
+
+// animate("#right-pattern", {x:["0px", "420px"]}, { delay: 0.5,
+//   duration: 0.4,
+//   easing: "ease-out"})
+
+
+// --- Scroll animation (coming together) ---
+scroll(
+  animate(
+    "#left-pattern",
+    { x: ["-420px", "0px"]},
+    { easing: "ease-out",
+      duration: 0.4,
+      delay:0.7
+     }
+  ),
+  {
+    // Trigger when hero starts leaving the top
+    target: document.querySelector("#hero-image"),
+    // End when we reach the end of client results
+    offset: ["start end", "end start"],
+  }
+)
+
+scroll(
+  animate(
+    "#right-pattern",
+    { x: ["420px", "0px"] },
+    { easing: "ease-out", duration: 0.4 , delay:0.7}
+  ),
+  {
+    target: document.querySelector("#hero-image"),
+    offset: ["start end", "end start"],
+  }
+)
+
+
+
+
+
+
+// Step 1: Slight approach (toward center)
+// animate("#left-pattern", {
+//   x: ["0px", "50px"]
+// }, {
+//   duration: 0.5
+// });
+// animate("#right-pattern", {
+//   x: ["0px", "-50px"]
+// }, {
+//   duration: 0.5
+// });
+
+// // Step 2: Immediately separate beyond screen
+// animate("#left-pattern", {
+//   x: ["50px", "-480px"],
+//   y: ["5px", "40px"]
+// }, {
+//   delay: 0.2,
+//   duration: 0.4,
+//   easing: "ease-out"
+// });
+// animate("#right-pattern", {
+//   x: ["-50px", "400px"],
+//   y: ["8px", "40px"]
+// }, {
+//   delay: 0.2,
+//   duration: 0.4,
+//   easing: "ease-out"
+// });
 
 
 // Step 3: Scroll-triggered return
 
+// document.addEventListener('DOMContentLoaded', () => {
+//     const leftPattern = document.getElementById('left-pattern');
+//     const rightPattern = document.getElementById('right-pattern');
+//     const patternSection = document.querySelector('.pattern-section');
+
+//     // 1. Initial Page Load Animation
+//     // Move patterns further out on page load
+//     animate(
+//         leftPattern,
+//         { x: ['0%', '-50%'] }, // From initial position to 50% further left
+//         { duration: 1, easing: 'ease-out' }
+//     );
+
+//     animate(
+//         rightPattern,
+//         { x: ['0%', '50%'] }, // From initial position to 50% further right
+//         { duration: 1, easing: 'ease-out' }
+//     );
+
+//     // 2. Scroll Animation for patterns
+//     // Use Motion One's scroll animation
+//     scroll(
+//         animate(
+//             leftPattern,
+//             { x: '-50%', transform: ['-50%', '0%'] }, // Animate from -50% to 0% of its initial offset
+//             { easing: 'ease-in-out' }
+//         ),
+//         {
+//             target: patternSection,
+//             offset: ['start end', 'end start'], // Start when the top of the section hits the bottom of the viewport, end when the bottom of the section leaves the top of the viewport
+//         }
+//     );
+
+//     scroll(
+//        animate(
+//             rightPattern,
+//             { x: '50%', transform: ['50%', '0%'] }, // Animate from 50% to 0% of its initial offset
+//             { easing: 'ease-in-out' }
+//         ),
+//         {
+//             target: patternSection,
+//             offset: ['start end', 'end start'],
+//         }
+//     );
+
+//     // Optional: Animate title or other elements on scroll
+//     const titleSection = document.getElementById('title-section');
+//     scroll(
+//         animate(
+//             titleSection,
+//             { opacity: [0.3, 1], y: [50, 0] },
+//             { easing: 'ease-out' }
+//         ),
+//         {
+//             target: titleSection,
+//             offset: ['start 0.9', 'end 0.7'], // Animate when 90% of title is in view, end when 70% is out of view
+//         }
+//     );
+// });
 
 

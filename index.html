@@ -7,18 +7,18 @@
     <title>cypher-motion</title>
   </head>
   <body class="bg-[#F5F5F5] overflow-y-scroll">
-    <main class="relative overflow-hidden">
+    <main class="">
       <section
-        class="max-w-[1440px] border mx-auto px-4 md:px-8 lg:px-10 relative z-10"
+        class="max-w-[1440px] border mx-auto px-4 md:px-8 lg:px-10"
       >
-      
         <div class="border border-[#E8E8E8]">
-          <div class="pattern-section relative min-h-[150vh]">
+          <div class="pattern-section relative z-0">
+           
             <!-- Left pattern -->
             <img
               src="https://framerusercontent.com/images/eQOr7tXrb2PqE3ViTF6WlyaVxM.svg?width=692&height=668"
               alt=""
-              class="z-0 absolute top-[200px] left-[20%]"
+              class="fixed top-[200px] left-[300px] z-0"
               id="left-pattern"
             />
 
@@ -26,12 +26,13 @@
             <img
               src="https://framerusercontent.com/images/TQziK4WEV0TC6wRUosfTWXJvLHU.svg?width=692&height=668"
               alt=""
-              class="z-0 absolute top-[200px] right-[25%]"
+              class="fixed top-[200px] right-[350px] z-0"
               id="right-pattern"
             />
 
+
             <!-- title part -->
-            <div class="z-10 relative">
+            <div class="relative z-10">
               <div
                 class="flex flex-col items-center justify-center gap-8 pt-28"
                 id="title-section"
@@ -68,7 +69,7 @@
               </div>
 
               <!-- 01 / Client results -->
-              <div class="py-[8rem]">
+              <div class="py-[8rem]" id="client-result">
                 <div class="px-24" id="client-result-heading">
                   <h2 class="text-lg capitalize text-[#F55138]">
                     01 / Client results
@@ -166,10 +167,11 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+           </div>
+           
+         </div>
           <!-- problem-solution -->
-          <div class="bg-[#F55138] p-24">
+          <div class="bg-[#F55138] p-24" id="problem-solution">
             <!-- heading -->
             <div class="mb-12">
               <p class="text-sm text-gray-400 mb-3">02 / PROBLEM → SOLUTION</p>
@@ -456,8 +458,10 @@
               </div>
             </div>
           </div>
-        </div>
-      </section>
+           
+           </div>
+        </section>
+     
     </main>
 
     <script type="module" src="/src/main.js"></script>
