@@ -201,13 +201,13 @@ inView("#client-result-cards", (element) => {
 
 
 
-// animate("#left-pattern", {x:["0px", "-420px"]}, { delay: 0.5,
-//   duration: 0.4,
-//   easing: "ease-out"})
+animate("#left-pattern", {x:["0px", "-420px"]}, { delay: 0.5,
+  duration: 0.4,
+  easing: "ease-out"})
 
-// animate("#right-pattern", {x:["0px", "420px"]}, { delay: 0.5,
-//   duration: 0.4,
-//   easing: "ease-out"})
+animate("#right-pattern", {x:["0px", "420px"]}, { delay: 0.5,
+  duration: 0.4,
+  easing: "ease-out"})
 
 
 // --- Scroll animation (coming together) ---
@@ -216,7 +216,7 @@ scroll(
     "#left-pattern",
     { x: ["-420px", "0px"]},
     { easing: "ease-out",
-      duration: 0.4,
+      duration: 1.5,
       delay:0.7
      }
   ),
@@ -224,7 +224,7 @@ scroll(
     // Trigger when hero starts leaving the top
     target: document.querySelector("#hero-image"),
     // End when we reach the end of client results
-    offset: ["start end", "end start"],
+    offset: ["start end", "end -100%"],
   }
 )
 
@@ -232,11 +232,11 @@ scroll(
   animate(
     "#right-pattern",
     { x: ["420px", "0px"] },
-    { easing: "ease-out", duration: 0.4 , delay:0.7}
+    { easing: "ease-out", duration: 1.5 , delay:0.7}
   ),
   {
     target: document.querySelector("#hero-image"),
-    offset: ["start end", "end start"],
+    offset: ["start end", "end -100%"],
   }
 )
 
