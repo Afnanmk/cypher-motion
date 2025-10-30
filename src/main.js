@@ -231,7 +231,7 @@ window.addEventListener("load", () => {
       rightPattern,
       { 
        
-        x: ["0px", "450px"]
+        x: ["0px", "420px"]
       },
       { 
         easing: "ease-in-out",
@@ -248,7 +248,7 @@ setTimeout(() => {
   scroll(
     animate(
       "#left-pattern",
-      { x: ["-420px", "0px"] },
+      { x: ["-500px", "0px"] },
       { 
         easing: "ease-out",
         duration: 1.5
@@ -263,7 +263,7 @@ setTimeout(() => {
   scroll(
     animate(
       "#right-pattern",
-      { x: ["450px", "0px"] },
+      { x: ["500px", "0px"] },
       { 
         easing: "ease-out",
         duration: 1.5
@@ -274,10 +274,14 @@ setTimeout(() => {
       offset: ["start end", "end -100%"]
     }
   );
-}, 2000);
+},2000);
 
 
 
+
+const ctaBtn = document.querySelector('.cta-btn');
+  const leftArrow = document.querySelector('.btn-arrow-left');
+  const rightArrow = document.querySelector('.btn-arrow-right');
 
 
 

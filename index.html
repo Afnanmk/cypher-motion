@@ -6,10 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>cypher-motion</title>
   </head>
+  
+<style>
+  .cta-btn {
+    position: relative;
+    display: inline-flex;
+  }
+  .btn-arrow-left {
+    position: absolute;
+    left: -42px;
+    transition: left 0.3s ease-out;
+    flex-shrink: 0;
+  }
+  .btn-arrow-right {
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out, width 0.3s ease-out, padding 0.3s ease-out;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .btn-text {
+    transition: transform 0.3s ease-out;
+    flex-shrink: 0;
+  }
+  .cta-btn:hover .btn-arrow-right {
+    transform: translateX(42px);
+    opacity: 0;
+  
+  }
+  .cta-btn:hover .btn-arrow-left {
+    left: 0;
+  }
+  .cta-btn:hover .btn-text {
+    transform: translateX(42px);
+  }
+</style>
+
   <body class="bg-[#F5F5F5]">
-    <main class="">
+    
       <section
-        class="max-w-[1440px] border mx-auto px-4 md:px-8 lg:px-10"
+        class="max-w-[1440px] border mx-auto px-4 md:px-8 lg:px-10 overflow-hidden"
       >
         <div class="border border-[#E8E8E8]">
           <div class="pattern-section relative z-10 h-[1000px]">
@@ -47,20 +81,29 @@
                   can make better decisions, increase revenue, and save hours of
                   work
                 </p>
-       
-                <div class="flex items-center gap-1 overflow-hidden h-[40px] cursor-pointer cta-btn relative">
-                  <a
-                    href="#"
-                    class="bg-[#F55138] text-white capitalize px-3 py-2 h-full btn-text flex items-center justify-center"
-                    >Talk to us</a
-                  >
-                  <div
-                    class="bg-[#F55138] text-white capitalize px-3 py-2 flex items-center justify-center h-full btn-arrow"
+                
+                <div class="relative cta-btn">
+                <div class="flex items-center overflow-hidden h-[40px] cursor-pointer relative">
+                   <div
+                    class="bg-[#F55138] text-white capitalize px-3 py-2 flex items-center justify-center h-full btn-arrow- btn-arrow-left transform absolute left-[-42px]"
                   >
                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
       </svg>
                   </div>
+                  <a
+                    href="#"
+                    class="bg-[#F55138] hover:text-white text-white capitalize px-3 py-2 h-full btn-text flex items-center justify-center ml-[2px]"
+                    >Talk to us</a
+                  >
+                  <div
+                    class="bg-[#F55138] text-white capitalize px-3 py-2 flex items-center justify-center h-full btn-arrow btn-arrow-right ml-1"
+                  >
+                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+                  </div>
+                </div>
                 </div>
               </div>
               <!-- hero image  -->
@@ -69,7 +112,7 @@
               </div>
  </div>
               <!-- 01 / Client results -->
-              <div class="py-[8rem] mt-[2rem] relative z-10" id="client-result">
+              <div class="pt-[8rem] mt-[2rem] relative z-10" id="client-result">
                 <div class="px-24" id="client-result-heading">
                   <h2 class="text-lg capitalize text-[#F55138]">
                     01 / Client results
@@ -462,7 +505,7 @@
            </div>
         </section>
      
-    </main>
+  
 
     <script type="module" src="/src/main.js"></script>
   </body>
